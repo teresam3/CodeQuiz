@@ -10,11 +10,11 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Acceptance Criteria
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
+GIVEN I am taking a code quiz // 
+WHEN I click the start button // fcn for it to start 
+THEN a timer starts and I am presented with a question //fcn for a counter
+WHEN I answer a question //create arrays for the questions
+THEN I am presented with another question 
 WHEN I answer a question incorrectly
 THEN time is subtracted from the clock
 WHEN all questions are answered or the timer reaches 0
