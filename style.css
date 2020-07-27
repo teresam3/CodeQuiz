@@ -1,0 +1,52 @@
+.main {
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 5px;
+    border: medium purple solid;
+    max-width: 80%;
+    padding: 10px;
+    margin: 10%;
+}
+.answers {
+    padding: 30px;
+    display: grid;
+    gap: 10px;
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: rgb(180, 128, 228);
+    font: bold;
+    font-size: 16px;
+    padding: 14px 40px;
+    display: inline-block;
+}
+
+.btn:hover {
+    border-color: black;
+    border-width: 5px;
+}
+
+.question {
+    margin: 30px;
+}
+
+.start-btn {
+    border-radius: 5px;
+    background-color: rgb(180, 128, 228);
+    font: bold;
+    font-size: 16px;
+    padding: 14px 40px;
+    text-align: center;
+    display: flex;
+    margin: auto;
+}
+
+.start-btn:hover {
+    border-color: orange;
+    border-width: 3px;
+}
+
+.hide {
+    display: none;
+}
