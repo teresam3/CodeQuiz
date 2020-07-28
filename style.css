@@ -17,9 +17,10 @@
     border-radius: 5px;
     background-color: rgb(180, 128, 228);
     font: bold;
-    font-size: 16px;
+    font-size: 25px;
     padding: 14px 40px;
     display: inline-block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .btn:hover {
@@ -29,6 +30,7 @@
 
 .question {
     margin: 30px;
+    font-size: 25px;
 }
 
 .start-btn {
@@ -49,4 +51,11 @@
 
 .hide {
     display: none;
+}
+
+h1 {
+    text-align: center;
+    color: purple;
+    margin-top: 50px;
+    padding: 10px;
 }
