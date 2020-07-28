@@ -2,7 +2,7 @@
 var getStarted = document.getElementById("start-btn")
 var questionBox = document.getElementById('quiz-box') //selects entire box of quix (answers & questions)
 var question = document.getElementById("questions") //selects individual question div 
-var choicesBox = document.getElementById('answers-btn') //select div where answers live
+var choicesBox = document.getElementById('answers-btn') //selects div where answers live
 var button = document.getElementById('btn') //see line 62
 var counter = 0
 var countDown
@@ -47,27 +47,27 @@ function startGame() {
     showQuestion()
 }
 
-//to show the question on click
+//to show the question on click then adds onto page
 function showQuestion() {
     console.log(questionArray[counter])
     question.append(questionArray[counter].question)
-//goes through the questionArray to display answers into choiceButton    
+//goes through the questionArray to display answers into choiceButton 
     for (var i = 0; i < questionArray[counter].choices.length; i++){
         console.log(questionArray[counter].choices[i])
-//create all buttons of the choices into html
+//creates/adds button of the choices into html of 1 question
         var choiceButton = document.createElement("button")
         choiceButton.setAttribute("id", "btn")
         choiceButton.setAttribute("value", i)
         choiceButton.classList.add("btn")
         choiceButton.innerText = questionArray[counter].choices[i]
         choicesBox.append(choiceButton)
-        choiceButton.onclick= checkAnswer;
+        choiceButton.onclick = checkAnswer
     }
 }
 
 //checks the answer clicked by the correct answer to see right/wrong
 function checkAnswer(event) {
-    var selectedAnswer = event.target.value;
+    var selectedAnswer = parseInt(event.target.value)
     if (selectedAnswer === questionArray[counter].answer) {
         selectAnswer()
     }
@@ -79,7 +79,12 @@ function checkAnswer(event) {
 //goes to next question once correct answer is clicked
 function selectAnswer() {
     counter++
-    showQuestion()``
+    function removeQuestion() {
+        question.innerHTML = ""
+        choicesBox.innerHTML = ""
+     }
+    removeQuestion()
+    showQuestion()
 }
 
 // function timer () {
