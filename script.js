@@ -4,7 +4,9 @@ var questionBox = document.getElementById('quiz-box') //selects entire box of qu
 var counter = 0
 var question = document.getElementById("questions") //selects individual question div 
 var choicesBox = document.getElementById('answers-btn') //select div where answers live
-var button = document.getElementById('btn') //see line 61
+var button = document.getElementById('btn') //see line 62
+var countDown
+var choiceButton
 //set of questions
 var questionArray = [
     {
@@ -38,9 +40,8 @@ var questionArray = [
 
 //click events
 getStarted.addEventListener("click", startGame)
-document.addEventListener("click", button, selectAnswer)
 
-//to initiate game after user clicks start
+//to initiate quiz after user clicks start
 function startGame() {
     console.log('play!')
     getStarted.classList.add('hide')
@@ -49,26 +50,37 @@ function startGame() {
     showQuestion()
 }
 
+//checks the answer clicked by the correct answer to see right/wrong
+function checkAnswer(event) {
+    var selectedAnswer = event.target.value;
+    if (selectedAnswer === questionArray[counter].answer) {
+        selectAnswer()
+    }
+    else {
+        console.log('Incorrect answer try again')
+    }
+}
+
 //to show the question on click
 function showQuestion() {
     console.log(questionArray[counter])
     question.append(questionArray[counter].question)
-//goes through the questionArray to display answer into choiceButton    
+//goes through the questionArray to display answers into choiceButton    
     for (var i = 0; i < questionArray[counter].choices.length; i++){
         console.log(questionArray[counter].choices[i])
-//create possible buttons of all the choices into html
+//create all buttons of the choices into html
         var choiceButton = document.createElement("button")
         choiceButton.setAttribute("id", "btn")
         choiceButton.setAttribute("value", i)
         choiceButton.classList.add("btn")
         choiceButton.innerText = questionArray[counter].choices[i]
         choicesBox.append(choiceButton)
+        choiceButton.onclick= checkAnswer;
     }
 }
 
-//goes to next question
+//goes to next question once correct answer is clicked
 function selectAnswer() {
     counter++
     showQuestion()
 }
-
