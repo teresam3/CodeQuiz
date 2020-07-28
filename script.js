@@ -1,10 +1,10 @@
 // variables to select html ids
 var getStarted = document.getElementById("start-btn")
-var questionBox = document.getElementById('quiz-box')
+var questionBox = document.getElementById('quiz-box') //selects entire box of quix (answers & questions)
 var counter = 0
-var question = document.getElementById("questions")
-var choicesBox = document.getElementById('answers-btn')
-var button = document.getElementById('btn')
+var question = document.getElementById("questions") //selects individual question div 
+var choicesBox = document.getElementById('answers-btn') //select div where answers live
+var button = document.getElementById('btn') //see line 61
 //set of questions
 var questionArray = [
     {
@@ -42,21 +42,21 @@ document.addEventListener("click", button, selectAnswer)
 
 //to initiate game after user clicks start
 function startGame() {
-    console.log('started')
+    console.log('play!')
     getStarted.classList.add('hide')
     questionBox.classList.remove('hide')
     questionBox.classList.add('display')
-    nextQuestion()
+    showQuestion()
 }
 
-//to initiate next question
-function nextQuestion() {
+//to show the question on click
+function showQuestion() {
     console.log(questionArray[counter])
     question.append(questionArray[counter].question)
 //goes through the questionArray to display answer into choiceButton    
     for (var i = 0; i < questionArray[counter].choices.length; i++){
         console.log(questionArray[counter].choices[i])
-//create new element of all the choices into html
+//create possible buttons of all the choices into html
         var choiceButton = document.createElement("button")
         choiceButton.setAttribute("id", "btn")
         choiceButton.setAttribute("value", i)
@@ -66,9 +66,9 @@ function nextQuestion() {
     }
 }
 
-//
+//goes to next question
 function selectAnswer() {
     counter++
-    nextQuestion()
+    showQuestion()
 }
 
