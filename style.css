@@ -24,7 +24,7 @@
 }
 
 .btn:hover {
-    border-color: black;
+    border-color: purple;
     border-width: 5px;
 }
 
@@ -46,8 +46,8 @@
 }
 
 .start-btn:hover {
-    border-color: black;
-    border-width: 3px;
+    border-color: purple;
+    border-width: 5px;
 }
 
 .hide {
