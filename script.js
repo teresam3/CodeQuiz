@@ -53,7 +53,6 @@ function startGame() {
 
 //to show the question on click then adds onto page
 function showQuestion() {
-    console.log(questionArray[counter])
     question.append(questionArray[counter].question)
 //goes through the questionArray to display answers into choiceButton 
     for (var i = 0; i < questionArray[counter].choices.length; i++){
@@ -72,14 +71,13 @@ function showQuestion() {
 //checks the answer clicked by the correct answer to see right/wrong
 function checkAnswer(event) {
     var selectedAnswer = parseInt(event.target.value)
-    console.log('///////////////////asflksjmdlkmf')
-    console.log(counter)
-    console.log(questionArray[counter])
     if (selectedAnswer === questionArray[counter].answer) {
         selectAnswer()
     }
     else {
         console.log('Incorrect answer try again')
+        secondsLeft = secondsLeft - 10
+        countDown.append(' -10 seconds')
     }
 }
 
@@ -100,13 +98,10 @@ function selectAnswer() {
 function timer () {
     var timerInterval = setInterval(function() {
     secondsLeft--;
-    countDown.textContent = secondsLeft + " seconds left.";
+    countDown.textContent = secondsLeft + " seconds left";
     if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      //sendMessage();
-    
+      clearInterval(timerInterval);  
     }
-
   }, 1000);
 }
 
