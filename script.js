@@ -4,8 +4,9 @@ var questionBox = document.getElementById('quiz-box') //selects entire box of qu
 var question = document.getElementById("questions") //selects individual question div 
 var choicesBox = document.getElementById('answers-btn') //selects div where answers live
 var button = document.getElementById('btn') //see line 62
+var countDown = document.getElementById('timer');
 var counter = 0
-var countDown
+var secondsLeft = 60
 var choiceButton
 //set of questions
 var questionArray = [
@@ -30,13 +31,15 @@ var questionArray = [
         answer: 0
     },
     {
-        question: "What is NOT a possible header?", 
+        question: "What is NOT a header element?", 
         choices: ["h5", "h7", "h1", "h2" ],
-        answer: 2
+        answer: 1
     },
 ]
 //click events
-getStarted.addEventListener("click", startGame)
+getStarted.addEventListener('click', startGame)
+//countDown.addEventListener('click', timer)
+console.log(countDown)
 
 //to initiate quiz after user clicks start
 function startGame() {
@@ -45,6 +48,7 @@ function startGame() {
     questionBox.classList.remove('hide')
     questionBox.classList.add('display')
     showQuestion()
+    timer()
 }
 
 //to show the question on click then adds onto page
@@ -68,6 +72,9 @@ function showQuestion() {
 //checks the answer clicked by the correct answer to see right/wrong
 function checkAnswer(event) {
     var selectedAnswer = parseInt(event.target.value)
+    console.log('///////////////////asflksjmdlkmf')
+    console.log(counter)
+    console.log(questionArray[counter])
     if (selectedAnswer === questionArray[counter].answer) {
         selectAnswer()
     }
@@ -85,16 +92,32 @@ function selectAnswer() {
      }
     removeQuestion()
     showQuestion()
+    if (counter == 5) {
+        gameOver()
+    }
+}
+    
+function timer () {
+    var timerInterval = setInterval(function() {
+    secondsLeft--;
+    countDown.textContent = secondsLeft + " seconds left.";
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      //sendMessage();
+    
+    }
+
+  }, 1000);
 }
 
-// function timer () {
+   
+function gameOver() {
+    var over = document.createElement("button")
+    over.setAttribute("id", "over-btn")
+    over.classList.add("btn")
+    over.innerText = "Game Over"
+    }
 
-// }
 
-// function gameOver() {
 
-// }
-
-// function saveGame() {
-
-// }
+// function saveGame() {}
