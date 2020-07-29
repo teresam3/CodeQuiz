@@ -50,10 +50,10 @@ function startGame() {
     showQuestion()
     timer()
 }
-console.log(counter)
-console.log(questionArray[counter])
 //to show the question on click then adds onto page
 function showQuestion() {
+    console.log(counter)
+    console.log(questionArray[counter])
     question.append(questionArray[counter].question)
 //goes through the questionArray to display answers into choiceButton 
     for (var i = 0; i < questionArray[counter].choices.length; i++){
