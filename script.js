@@ -119,10 +119,10 @@ function gameOver() {
     over.onclick = submit()
     }
 
-function submit (
+function submit () {
     delete over 
     saveGame()
-)
+}
 
 
 function saveGame() {
