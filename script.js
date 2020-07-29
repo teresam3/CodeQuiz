@@ -4,7 +4,8 @@ var questionBox = document.getElementById('quiz-box') //selects entire box of qu
 var question = document.getElementById("questions") //selects individual question div 
 var choicesBox = document.getElementById('answers-btn') //selects div where answers live
 var button = document.getElementById('btn') //see line 62
-var countDown = document.getElementById('timer');
+var countDown = document.getElementById('timer')
+var over = document.createElement("button")
 var counter = 0
 var secondsLeft = 60
 var choiceButton
@@ -94,7 +95,7 @@ function selectAnswer() {
         gameOver()
         return
       } 
-      
+
       showQuestion()
     }
 function timer () {
@@ -109,16 +110,31 @@ function timer () {
 }, (1000)    )
 }
 
-
-
-timer()
-
 function gameOver() {
     var over = document.createElement("button")
     over.setAttribute("id", "over-btn")
     over.classList.add("btn")
     over.innerText = "Game Over"
     choicesBox.append(over)
+    over.onclick = saveGame()
     }
 
-//function saveGame() {}
+
+
+function saveGame() {
+    over.classList.add('hide')
+    var form = document.createElement("form")
+    var inputName = document.createElement("input")
+    var submitBtn = document.createElement('button')
+    
+    inputName.setAttribute("placeholder", "Insert initials here")
+    
+    submitBtn.classList.add('btn')
+    submitBtn.textContent = "Save"
+
+    form.appendChild(inputName)
+    form.appendChild(submitBtn)
+
+    choicesBox.appendChild(form)
+
+}
