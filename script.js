@@ -40,6 +40,7 @@ var questionArray = [
 ]
 //click events
 getStarted.addEventListener('click', startGame)
+
 //countDown.addEventListener('click', timer)
 console.log(countDown)
 
@@ -91,19 +92,22 @@ function selectAnswer() {
         choicesBox.innerHTML = ""
      }  
      removeQuestion ()
-     if (counter == 5) {
+    }
+     if (counter >= 5) {
         gameOver()
         return
+        timerInterval.innerHTML = ""
       } 
 
       showQuestion()
     }
+
 function timer () {
     var timerInterval = setInterval(function() {
     secondsLeft--;
     countDown.textContent = secondsLeft + " seconds left"; 
     if (secondsLeft === 0) {
-      clearInterval(timerInterval);  
+      clearInterval(timerInterval)
       gameOver()
     }  
 
