@@ -116,13 +116,16 @@ function gameOver() {
     over.classList.add("btn")
     over.innerText = "Game Over"
     choicesBox.append(over)
-    over.onclick = saveGame()
+    over.onclick = submit()
     }
 
+function submit (
+    delete over 
+    saveGame()
+)
 
 
 function saveGame() {
-    over.classList.add('hide')
     var form = document.createElement("form")
     var inputName = document.createElement("input")
     var submitBtn = document.createElement('button')
