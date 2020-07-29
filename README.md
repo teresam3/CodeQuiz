@@ -27,3 +27,5 @@ THEN I can save my initials and score
     Then, I added classes and ids to be used later for styling and adding javascript.
 
     Next, I styled the page by using the classes. I used the main class to give the border to quiz as well as centering it and adding a font. The answers class was used to style what would buttons to click the possible answers. The btn class styles the buttons that were latered added with javascript. The btn:hover improves user experience by making the page interactive because it highlight the answer choices when the user's pointer is hovering over the choice. That was done for both all the answers and the start button which is at the beginning of the quiz. I also made the quiz hidden with CSS to initiate with javascript the quiz once it is clicked.
+
+    Finally, came the long and tedious task of creating the javascript. First, I simply created variables that'll pick certain HTML elements based on their respective IDs. Then I created the questions using an array with all of the questions, answers, and possible choices. Then, I created the functions that'll hold the events for page. 
