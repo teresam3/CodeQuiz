@@ -50,7 +50,8 @@ function startGame() {
     showQuestion()
     timer()
 }
-
+console.log(counter)
+console.log(questionArray[counter])
 //to show the question on click then adds onto page
 function showQuestion() {
     question.append(questionArray[counter].question)
@@ -77,6 +78,7 @@ function checkAnswer(event) {
     else {
         console.log('Incorrect answer try again')
         secondsLeft = secondsLeft - 10
+        // countDown.append(' Wrong Answer ')
         countDown.append(' -10 seconds')
     }
 }
@@ -90,7 +92,7 @@ function selectAnswer() {
      }
     removeQuestion()
     showQuestion()
-    if (counter == 5) {
+    if (counter === 5) {
         gameOver()
     }
 }
@@ -101,6 +103,7 @@ function timer () {
     countDown.textContent = secondsLeft + " seconds left";
     if(secondsLeft === 0) {
       clearInterval(timerInterval);  
+      gameOver()
     }
   }, 1000);
 }
@@ -111,8 +114,9 @@ function gameOver() {
     over.setAttribute("id", "over-btn")
     over.classList.add("btn")
     over.innerText = "Game Over"
+    choicesBox.append(over)
     }
-
+    console.log(gameOver())
 
 
 // function saveGame() {}
