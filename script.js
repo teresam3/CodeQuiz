@@ -8,6 +8,7 @@ var countDown = document.getElementById('timer');
 var counter = 0
 var secondsLeft = 60
 var choiceButton
+var timerInterval
 //set of questions
 var questionArray = [
     {
@@ -52,8 +53,6 @@ function startGame() {
 }
 //to show the question on click then adds onto page
 function showQuestion() {
-    console.log(counter)
-    console.log(questionArray[counter])
     question.append(questionArray[counter].question)
 //goes through the questionArray to display answers into choiceButton 
     for (var i = 0; i < questionArray[counter].choices.length; i++){
@@ -89,26 +88,31 @@ function selectAnswer() {
     function removeQuestion() {
         question.innerHTML = ""
         choicesBox.innerHTML = ""
-     }
-    removeQuestion()
-    showQuestion()
-    if (counter === 5) {
+     }  
+     removeQuestion ()
+     if (counter == 5) {
         gameOver()
+        return
+      } 
+      
+      showQuestion()
     }
-}
-    
 function timer () {
     var timerInterval = setInterval(function() {
     secondsLeft--;
-    countDown.textContent = secondsLeft + " seconds left";
-    if(secondsLeft === 0) {
+    countDown.textContent = secondsLeft + " seconds left"; 
+    if (secondsLeft === 0) {
       clearInterval(timerInterval);  
       gameOver()
-    }
-  }, 1000);
+    }  
+
+}, (1000)    )
 }
 
-   
+
+
+timer()
+
 function gameOver() {
     var over = document.createElement("button")
     over.setAttribute("id", "over-btn")
@@ -116,7 +120,5 @@ function gameOver() {
     over.innerText = "Game Over"
     choicesBox.append(over)
     }
-    console.log(gameOver())
 
-
-// function saveGame() {}
+//function saveGame() {}
