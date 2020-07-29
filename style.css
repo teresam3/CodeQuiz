@@ -58,10 +58,18 @@ h1 {
     text-align: center;
     color: purple;
     margin-top: 50px;
+    margin-left: ;
     padding: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.timer {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    color: purple;
+
+}
 @media only screen and (max-width: 600px) {
     .answers {
       text-align: justify
