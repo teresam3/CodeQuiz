@@ -13,27 +13,27 @@ var timerInterval
 //set of questions
 var questionArray = [
     {
-        question: "What is NOT an element of HTML?", 
+        questions: "What is NOT an element of HTML?", 
         choices: ["body", "head", "h1", ".getQuerySelector()" ],
         answer: 3
     },
     {
-        question: "What brackets are used for arrays?", 
+        questions: "What brackets are used for arrays?", 
         choices: ["<>", "{}", "[]", "()" ],
         answer: 2
     },
     {
-        question: "What does HTML stand for?", 
+        questions: "What does HTML stand for?", 
         choices: ["hypertext markup language", "hypertest markup letters", "hot tamale", "how to make letters" ],
         answer: 0
     },
     {
-        question: "What is CSS used for?", 
+        questions: "What is CSS used for?", 
         choices: ["styling the page", "making page responsive", "creating the outline of page", "add to github" ],
         answer: 0
     },
     {
-        question: "What is NOT a header element?", 
+        questions: "What is NOT a header element?", 
         choices: ["h5", "h7", "h1", "h2" ],
         answer: 1
     },
@@ -55,7 +55,7 @@ function startGame() {
 }
 //to show the question on click then adds onto page
 function showQuestion() {
-    question.append(questionArray[counter].question)
+    question.append(questionArray[counter].questions)
 //goes through the questionArray to display answers into choiceButton 
     for (var i = 0; i < questionArray[counter].choices.length; i++){
         console.log(questionArray[counter].choices[i])
@@ -92,35 +92,33 @@ function selectAnswer() {
         choicesBox.innerHTML = ""
      }  
      removeQuestion ()
+     showQuestion()
     }
-     if (counter >= 5) {
-        gameOver()
-        return
-        timerInterval.innerHTML = ""
-      } 
+    
 
-      showQuestion()
-    }
+    
 
 function timer () {
     var timerInterval = setInterval(function() {
     secondsLeft--;
     countDown.textContent = secondsLeft + " seconds left"; 
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval)
-      gameOver()
-    }  
-
+    if ((secondsLeft === 0) || (counter == 5)) {
+        clearInterval(timerInterval)
+        gameOver()
+      }   
+    // else (counter >= 5)
+    //     gameOver()
 }, (1000)    )
 }
 
 function gameOver() {
-    var over = document.createElement("button")
-    over.setAttribute("id", "over-btn")
-    over.classList.add("btn")
+    var over = document.createElement("h1")
+    over.setAttribute("id", "header")
+    over.classList.add("h1")
     over.innerText = "Game Over"
     choicesBox.append(over)
     over.onclick = saveGame()
+
     }
 
 function saveGame() {
